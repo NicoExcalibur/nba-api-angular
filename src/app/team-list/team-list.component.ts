@@ -7,10 +7,13 @@ import { DataService } from '../data.service';
   styleUrls: ['./team-list.component.css'],
 })
 export class TeamListComponent implements OnInit {
+  teams: any[] = [];
+
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     this.dataService.getTeams().subscribe((response: any) => {
+      this.teams.push(response);
       console.log(response);
     });
   }
