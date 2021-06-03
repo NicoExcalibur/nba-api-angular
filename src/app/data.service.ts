@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  // get teams
+  getTeams() {
+    return this.http.get('https://www.balldontlie.io/api/v1/teams');
+  }
 }
